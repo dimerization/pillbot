@@ -1,0 +1,64 @@
+PILLBOX STORIES
+
+Date & Time Info Refactor
+- currently storing date and time info in a Date object
+- this is a terrible way to store this info
+- either build a timestamp or just store everything as ints
+- Files to modify:
+	- Medicine.java
+	- AddMedsAction
+	- AddMedsView
+
+Implement Add Meds Action
+- Save
+	x - SpinnerAdapter in AddMedsAction.java for freq_taken_units
+	- new up and populate Medicine obj
+	- figure out how to persist data lol
+- Date Selection
+	- add a calendar widget to the Add Meds View that will let the user set a start date
+	- this will be way simpler than what I'm doing now
+- Cancel
+
+Implement View My Meds View/Action
+- Just do a bulleted list for now
+- Should show med name, dose desc, time taken, freq taken, is as-needed
+
+Implement Med Reminder Functionality
+- Set alarm upon med creation
+
+FUTURE
+
+Add support for irregular dose intervals for meds
+
+Add med tracking history
+
+Make the Add Meds View look less terrible
+
+BUGS
+
+Fix TimePicker in Add Meds
+- timepickermode param only available for API lvl 21+
+- will break for older versions of Android
+- without that setting on Lollipop, clock widget will not display correctly
+- FIX IT
+
+COMPLETED
+
+Add Buttons & Title to Main Menu
+- "Pillbox"
+- Take Meds
+- Add Meds
+- View My Meds
+- Edit My Meds
+- Settings
+
+Create Add Meds View
+- Simple input boxes, doesn't have to look fancy
+- Med name: String x
+- Dose desc: String x
+- Time taken: Clock input x
+- Freq taken: Selection menu for now (every 12 hrs, every 24 hrs, every x hours, every x days)
+	- numeric input field
+	- spinner
+		- xml
+- As Needed: bool (check box) 
