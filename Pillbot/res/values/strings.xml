@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pillbot</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="action_settings">Settings</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_takeMeds">Take Meds</string>
+    <string name="action_viewMyMeds">View My Meds</string>
+    <string name="action_editMyMeds">Edit My Meds</string>
+    <string name="action_addMeds">Add Meds</string>
+    
+    <string name="label_med_name">Name: </string>
+    <string name="label_med_dose">Dosage: </string>
+    <string name="label_time_taken">I take my first dose of the day at </string>
+    <string name="label_freq_taken">I take this medication every </string>
+    <string name="label_as_needed">I take this medication as needed</string>
+    
+    <string name="hint_med_name">Name of medication</string>
+    <string name="hint_med_dose">e.g. \'2 tablets\', \'100 mg\'</string>
+    <string name="hint_freq_taken_count">0</string>
+    
+    <string name="title_activity_add_meds">Add New Medication</string>
+
+</resources>

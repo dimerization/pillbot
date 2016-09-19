@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="units_array">
+        <item>hours</item>
+        <item>minutes</item>
+        <item>days</item>
+        <item>weeks</item>
+    </string-array>
+</resources>

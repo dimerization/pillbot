@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.pillbot.activity.MainActivityTests" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name" />
+
+    <Button
+        android:id="@+id/take_meds_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="takeMeds"
+        android:text="@string/action_takeMeds" />
+
+    <Button
+        android:id="@+id/add_meds_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addMeds"
+        android:text="@string/action_addMeds" />
+
+    <Button
+        android:id="@+id/view_my_meds_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="viewMyMeds"
+        android:text="@string/action_viewMyMeds" />
+
+    <Button
+        android:id="@+id/edit_my_meds_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="editMyMeds"
+        android:text="@string/action_editMyMeds" />
+
+</LinearLayout>
