@@ -6,16 +6,9 @@ import java.io.IOException;
 
 import org.json.JSONException;
 
-import com.example.pillbot.R;
-import com.pillbot.data.IntervalUnit;
-import com.pillbot.data.Medication;
-
-import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.Calendar;
-import android.icu.util.GregorianCalendar;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TimePicker;
+
+import com.example.pillbot.R;
+import com.pillbot.data.IntervalUnit;
+import com.pillbot.data.Medication;
 
 @SuppressWarnings("deprecation")
 public class AddMedsActivity extends ActionBarActivity {
@@ -66,7 +62,6 @@ public class AddMedsActivity extends ActionBarActivity {
 		EditText medDoseView = (EditText) findViewById(R.id.id_med_dose);
 		EditText freqTakenCountView = (EditText) findViewById(R.id.id_freq_taken_count);
 		Spinner freqTakenUnitsView = (Spinner) findViewById(R.id.id_freq_taken_units);
-		TimePicker timeTakenView = (TimePicker) findViewById(R.id.id_time_taken);
 		CheckBox isAsNeededView = (CheckBox) findViewById(R.id.id_as_needed);
 
 		String medName = medNameView.getText().toString();
@@ -84,25 +79,11 @@ public class AddMedsActivity extends ActionBarActivity {
 
 		boolean isAsNeeded = isAsNeededView.isActivated();
 
-		// TODO currently meds will ALWAYS start on today's date
-		// must add handling to allow users to set start dates
-		// TODO this logic w Calendar is only available for more recent versions of Android
-		// surely there must be a backwards-compatible way to get the current date in Android
-		Calendar cal = Calendar.getInstance();
-		GregorianCalendar timeTaken = new GregorianCalendar(
-				cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
-				cal.get(Calendar.DATE), timeTakenView.getHour(),
-				timeTakenView.getMinute(), 0);
-
-		Medication newMed = new Medication(medName, medDose, timeTaken,
-				freqTakenCount, freqTakenUnit, isAsNeeded);
-
-		// TODO is this the best way to persist this data?? research
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssZ");
-		String dateString = dateFormat.format(timeTaken);
+		Medication newMed = new Medication(medName, medDose, freqTakenCount,
+				freqTakenUnit, isAsNeeded);
 
 		try {
-			String filename = medName + "_" + dateString;
+			String filename = medName;
 			FileOutputStream outputStream = openFileOutput(filename,
 					Context.MODE_PRIVATE);
 			outputStream.write(newMed.toJSON().getBytes());

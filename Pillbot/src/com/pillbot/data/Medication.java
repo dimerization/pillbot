@@ -13,23 +13,19 @@ public class Medication {
 
 	private String name;
 	private String dosage;
-	private GregorianCalendar startTime;
 	private int intervalTaken;
 	private IntervalUnit intervalTakenUnit;
 	private boolean isAsNeeded;
 
-	public Medication(String name, String dosage, GregorianCalendar startTime,
-			int intervalTaken, IntervalUnit intervalTakenUnit,
-			boolean isAsNeeded) {
+	public Medication(String name, String dosage, int intervalTaken,
+			IntervalUnit intervalTakenUnit, boolean isAsNeeded) {
 		this.name = name;
 		this.dosage = dosage;
-		this.startTime = startTime;
 		this.intervalTaken = intervalTaken;
 		this.intervalTakenUnit = intervalTakenUnit;
 		this.isAsNeeded = isAsNeeded;
 	}
 
-	@SuppressWarnings("deprecation")
 	public Medication(String jsonStr) throws JSONException, ParseException {
 		JSONObject jsonObj = new JSONObject(jsonStr);
 
@@ -37,16 +33,8 @@ public class Medication {
 		this.dosage = jsonObj.getString("dosage");
 		this.intervalTakenUnit = IntervalUnit.getString(jsonObj.getString("intervalTakenUnit"));
 		this.isAsNeeded = jsonObj.getBoolean("isAsNeeded");
-
-		// Parse date
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"MM/dd/yyyy HH:mm:ss");
-		Date dateObj = dateFormat.parse(jsonObj.getString("startTime"));
-		this.startTime = new GregorianCalendar(dateObj.getYear(),
-				dateObj.getMonth(), dateObj.getDay(), dateObj.getHours(),
-				dateObj.getMinutes(), dateObj.getSeconds());
 	}
-
+	
 	public String toJSON() throws JSONException {
 		JSONObject jsonObj = new JSONObject();
 
@@ -55,10 +43,6 @@ public class Medication {
 		jsonObj.put("intervalTaken", intervalTaken);
 		jsonObj.put("intervalTakenUnit", intervalTakenUnit.toString());
 		jsonObj.put("isAsNeeded", isAsNeeded);
-
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"MM/dd/yyyy HH:mm:ss");
-		jsonObj.put("startTime", dateFormat.format(startTime));
 
 		return jsonObj.toString();
 	}
@@ -85,14 +69,6 @@ public class Medication {
 
 	public void setDosage(String dosage) {
 		this.dosage = dosage;
-	}
-
-	public GregorianCalendar getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(GregorianCalendar startTime) {
-		this.startTime = startTime;
 	}
 
 	public int getIntervalTaken() {
