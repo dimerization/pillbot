@@ -1,13 +1,9 @@
 package com.pillbot.data;
 
 import java.text.ParseException;
-import java.util.Date;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.GregorianCalendar;
 
 public class Medication {
 

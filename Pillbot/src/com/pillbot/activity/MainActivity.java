@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 	
 	public void addMeds(View view) {
-		Intent intent = new Intent(this, AddMedsActivityTests.class);
+		Intent intent = new Intent(this, AddMedsActivity.class);
 		startActivity(intent);
 	}
 	
